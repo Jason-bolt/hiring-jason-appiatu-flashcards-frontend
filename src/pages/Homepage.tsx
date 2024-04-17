@@ -7,7 +7,7 @@ const Homepage = () => {
       <section className="h-screen flex justify-center items-center">
         {/* Banner */}
         <div className="flex flex-col items-center -mt-14">
-          <div className="md:w-[450px]">
+          <div className="w-full md:w-[450px]">
             <div className="w-full text-center py-20 border shadow-md border-gray-700">
               <h1 className="text-5xl font-bold">
                 <em>FLASH</em>
