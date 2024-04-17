@@ -17,16 +17,15 @@ const Homepage = () => {
             <Button type={ButtonTypes.correct} />
           </div>
           <div className="text-center mt-6 text-sm text-gray-600">
+            <p>Welcome to FLASH !!!</p>
             <p>
-              🌟 Welcome to <em>FLASH!</em> 🌟 Get ready to turbocharge your
-              learning with our exhilarating flashcard web app! Say goodbye to
-              boring study routines and hello to the thrill of simple spaced
-              repetition! 🚀✨ Each correct answer catapults your card into a
-              bin, but here's the kicker: the higher the bin number, the longer
-              it takes for the card to resurface, maximizing your memory
-              retention like never before! 🧠💥 So what are you waiting for?
-              Dive into the electrifying world of FLASH and supercharge your
-              learning journey today! 💫🔥<em> Have fun!!! 🎉</em>
+              Where you get to turbocharge your learning with our exhilarating
+              flashcard web app! Say goodbye to boring study routines and hello
+              to the thrill of simple spaced repetition! Each correct answer
+              catapults your card into a bin, but the kicker is the higher the
+              bin number, the longer it takes for the card to resurfaces,
+              maximising your memory retention like never before! Supercharge
+              your learning journey today while having fun with FLASH !!!!
             </p>
           </div>
         </div>
