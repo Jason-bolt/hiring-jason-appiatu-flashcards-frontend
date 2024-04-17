@@ -142,7 +142,7 @@ const Cardspage = () => {
   }
 
   if (error) {
-    toast.error(JSON.stringify(error));
+    toast.error(JSON.stringify(error.message));
   }
 
   return <>{content}</>;
