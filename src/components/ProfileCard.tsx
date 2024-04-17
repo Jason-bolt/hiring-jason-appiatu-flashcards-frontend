@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import CountDown from "./CountDown";
 import { BiSolidEditAlt } from "react-icons/bi";
 import { LiaTrashAltSolid } from "react-icons/lia";
