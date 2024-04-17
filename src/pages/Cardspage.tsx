@@ -77,7 +77,7 @@ const Cardspage = () => {
       </section>
     );
   } else {
-    if (data.fetchDisplayCard.data?.id === null) {
+    if (data?.fetchDisplayCard.data?.id === null) {
       content = (
         <section className="mt-24 mx-auto flex flex-col gap-28 mb-40 w-screen">
           <div className="flex flex-col gap-4 items-center justify-center text-center my-20">
@@ -95,7 +95,7 @@ const Cardspage = () => {
           </div>
         </section>
       );
-    } else if (data.fetchDisplayCard.data?.are_cards_done) {
+    } else if (data?.fetchDisplayCard.data?.are_cards_done) {
       content = (
         <section className="mt-24 mx-auto flex flex-col gap-28 mb-40 w-screen">
           <div className="flex flex-col gap-4 items-center justify-center text-center my-20">
@@ -117,8 +117,8 @@ const Cardspage = () => {
         <section className="mt-10 mx-auto flex flex-col gap-28 mb-40 w-screen">
           <div className="flex flex-col gap-4 items-center">
             <Card
-              word={data.fetchDisplayCard.data?.word}
-              definition={data.fetchDisplayCard.data?.definition}
+              word={data?.fetchDisplayCard.data?.word}
+              definition={data?.fetchDisplayCard.data?.definition}
             />
             <div className="flex flex-row justify-between px-5 w-full md:px-0 md:w-[450px]">
               <Button
@@ -148,7 +148,7 @@ const Cardspage = () => {
             </div>
           </div>
           <div className="flex flex-row justify-center gap-3 flex-wrap">
-            {data.fetchDisplayCard.data?.bins.map(
+            {data?.fetchDisplayCard.data?.bins.map(
               (bin: { bin: string; count: number }) => (
                 <Bin key={bin.bin} bin={bin.bin} count={bin.count} />
               )
