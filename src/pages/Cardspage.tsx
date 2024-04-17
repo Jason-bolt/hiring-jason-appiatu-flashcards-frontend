@@ -58,6 +58,24 @@ const Cardspage = () => {
         </div>
       </section>
     );
+  }
+  if (data?.fetchDisplayCard.data?.card_count === 0) {
+    content = (
+      <section className="mt-24 mx-auto flex flex-col gap-28 mb-40 w-screen">
+        <div className="flex flex-col gap-4 items-center justify-center text-center my-20">
+          <h1 className="text-3xl">
+            Add words from the <q>Portal</q> page to begin...
+          </h1>
+        </div>
+        <div className="flex flex-row justify-center gap-3 flex-wrap">
+          {data.fetchDisplayCard.data?.bins.map(
+            (bin: { bin: string; count: number }) => (
+              <Bin key={bin.bin} bin={bin.bin} count={bin.count} />
+            )
+          )}
+        </div>
+      </section>
+    );
   } else {
     if (data.fetchDisplayCard.data?.id === null) {
       content = (

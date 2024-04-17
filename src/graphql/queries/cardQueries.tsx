@@ -11,6 +11,7 @@ const FETCH_DISPLAY_CARD = gql`
         definition
         bin
         are_cards_done
+        card_count
         bins {
           bin
           count
