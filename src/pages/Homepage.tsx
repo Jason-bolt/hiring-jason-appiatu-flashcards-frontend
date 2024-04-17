@@ -16,11 +16,13 @@ const Homepage = () => {
             <Button type={ButtonTypes.wrong} />
             <Button type={ButtonTypes.correct} />
           </div>
-          <div className="text-center mt-6 text-gray-600">
+          <div className="text-center mt-6 text-sm text-gray-600">
             <p>
               Welcome to <em>FLASH!</em> A flashcard web app that uses simple
-              spaced repetition to increase learning efficacy. Do feel free to
-              explore the platform.
+              spaced repetition to increase learning efficacy. On answering
+              correctly, the card will be placed in a bin. The higher the number
+              the longer the time to re-appear. Do feel free to explore the
+              platform. <em>Have fun!!!</em>
             </p>
           </div>
         </div>
