@@ -58,10 +58,8 @@ const Register = () => {
   return (
     <section className="h-screen flex justify-center items-center bg-white">
       <div className="border border-gray-400 rounded-md p-9">
-        <form onSubmit={handleSubmit(submitForm)}>
-          <h1 className="text-center font-semibold mb-2">
-            Join <em>FLASH</em>!
-          </h1>
+        <form onSubmit={handleSubmit(submitForm)} className="mb-3">
+          <h1 className="text-center font-semibold mb-2">Register</h1>
           <label htmlFor="" className="text-sm font-semibold">
             Username
           </label>
@@ -162,14 +160,16 @@ const Register = () => {
             >
               Back to home
             </Link>
-            <Link
-              to="/signin"
-              className="btn text-black px-3 py-1 rounded-md underline hover:cursor-pointer"
-            >
-              Sign in
-            </Link>
           </div>
         </form>
+        <div className="flex flex-row w-full items-center justify-center">
+          <Link
+            to="/signin"
+            className="btn px-3 py-1 text-sm rounded-md bg-black text-white hover:cursor-pointer hover:bg-gray-600 thover:text-black"
+          >
+            Sign in
+          </Link>
+        </div>
       </div>
     </section>
   );

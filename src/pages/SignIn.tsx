@@ -48,7 +48,7 @@ const SignIn = () => {
   return (
     <section className="h-screen flex justify-center items-center bg-white">
       <div className="border border-gray-400 rounded-md p-9">
-        <form onSubmit={handleSubmit(submitForm)}>
+        <form onSubmit={handleSubmit(submitForm)} className="mb-3">
           <h1 className="text-center font-semibold mb-2">Sign in</h1>
           <label htmlFor="" className="text-sm font-semibold">
             Username
@@ -110,14 +110,16 @@ const SignIn = () => {
             >
               Back to home
             </Link>
-            <Link
-              to="/register"
-              className="btn text-black px-3 py-1 rounded-md underline hover:cursor-pointer"
-            >
-              Join <em>FLASH</em>
-            </Link>
           </div>
         </form>
+        <div className="flex flex-row w-full items-center justify-center">
+          <Link
+            to="/register"
+            className="btn px-3 py-1 text-sm rounded-md bg-black text-white hover:cursor-pointer hover:bg-gray-600 thover:text-black"
+          >
+            Register
+          </Link>
+        </div>
       </div>
     </section>
   );
