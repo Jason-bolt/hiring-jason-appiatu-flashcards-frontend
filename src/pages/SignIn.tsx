@@ -1,10 +1,12 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import userMutations from "../graphql/mutations/userMutations";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
 
 const { SIGNIN } = userMutations;
 
@@ -22,6 +24,7 @@ const SignIn = () => {
       password: "",
     },
   });
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     if (data?.login.status === "200") {
@@ -65,15 +68,30 @@ const SignIn = () => {
           <label htmlFor="" className="text-sm font-semibold">
             Password
           </label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "This is required!",
-            })}
-            className="w-full border rounded-md py-2 px-3 mt-1 text-gray-600 placeholder:text-gray-300 placeholder:text-sm"
-            placeholder="Enter password..."
-          />
-          <p className="text-xs text-red-600">{errors.password?.message}</p>
+
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              {...register("password", {
+                required: "This is required!",
+              })}
+              className="w-full border rounded-md py-2 px-3 mt-1 text-gray-600 placeholder:text-gray-300 placeholder:text-sm"
+              placeholder="Enter password..."
+            />
+            <p className="text-xs text-red-600">{errors.password?.message}</p>
+            <span
+              className="absolute top-3 right-3 cursor-pointer"
+              onClick={() => {
+                setShowPassword(!showPassword);
+              }}
+            >
+              {showPassword ? (
+                <AiOutlineEye className="text-2xl text-gray-500" />
+              ) : (
+                <AiOutlineEyeInvisible className="text-2xl text-gray-500" />
+              )}
+            </span>
+          </div>
 
           <div className="flex flex-col justify-center text-xs text-center mt-5 gap-2">
             <button
@@ -81,7 +99,9 @@ const SignIn = () => {
               className="btn text-black border border-black px-3 py-1 rounded-md flex items-center justify-center gap-2 hover:cursor-pointer hover:text-white hover:bg-black"
               disabled={loading}
             >
-              {loading && <span className="loader border border-black hover:border-white"></span>}
+              {loading && (
+                <span className="loader border border-black hover:border-white"></span>
+              )}
               Sign in
             </button>
             <Link

@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@apollo/client";
 import userMutations from "../graphql/mutations/userMutations";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { AiOutlineEyeInvisible } from "react-icons/ai";
+import { AiOutlineEye } from "react-icons/ai";
 
 const { REGISTER_USER } = userMutations;
 
@@ -21,6 +23,9 @@ const Register = () => {
       passwordConfirmation: "",
     },
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [showPasswordConfirmation, setShowPasswordConfirmation] =
+    useState(false);
 
   useEffect(() => {
     if (data?.registerUser.status === "201") {
@@ -30,7 +35,10 @@ const Register = () => {
       toast.success("Account created!");
     }
 
-    if (data?.registerUser.status === "400") {
+    if (
+      data?.registerUser.status === "400" ||
+      data?.registerUser.status === "409"
+    ) {
       toast.error(data.registerUser.message);
     }
   }, [data]);
@@ -70,42 +78,72 @@ const Register = () => {
           <label htmlFor="" className="text-sm font-semibold">
             Password
           </label>
-          <input
-            type="password"
-            {...register("password", {
-              required: "This is required!",
-              minLength: {
-                value: 8,
-                message: "Min length is 8!",
-              },
-            })}
-            className="w-full border rounded-md py-2 px-3 mt-1 text-gray-600 placeholder:text-gray-300 placeholder:text-sm"
-            placeholder="Enter password..."
-          />
-          <p className="text-xs text-red-600 mb-0">
-            {errors.password?.message}
-          </p>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              {...register("password", {
+                required: "This is required!",
+                minLength: {
+                  value: 8,
+                  message: "Min length is 8!",
+                },
+              })}
+              className="w-full border rounded-md py-2 px-3 mt-1 text-gray-600 placeholder:text-gray-300 placeholder:text-sm"
+              placeholder="Enter password..."
+              maxLength={20}
+            />
+            <p className="text-xs text-red-600 mb-0">
+              {errors.password?.message}
+            </p>
+            <span
+              className="absolute top-3 right-3 cursor-pointer"
+              onClick={() => {
+                setShowPassword(!showPassword);
+              }}
+            >
+              {showPassword ? (
+                <AiOutlineEye className="text-2xl text-gray-500" />
+              ) : (
+                <AiOutlineEyeInvisible className="text-2xl text-gray-500" />
+              )}
+            </span>
+          </div>
 
           <br />
 
           <label htmlFor="" className="text-sm font-semibold">
             Confirm password
           </label>
-          <input
-            type="password"
-            {...register("passwordConfirmation", {
-              required: "This is required!",
-              minLength: {
-                value: 8,
-                message: "Min length is 8!",
-              },
-            })}
-            className="w-full border rounded-md py-2 px-3 mt-1 text-gray-600 placeholder:text-gray-300 placeholder:text-sm"
-            placeholder="Confirm password..."
-          />
-          <p className="text-xs text-red-600">
-            {errors.passwordConfirmation?.message}
-          </p>
+
+          <div className="relative">
+            <input
+              type={showPasswordConfirmation ? "text" : "password"}
+              {...register("passwordConfirmation", {
+                required: "This is required!",
+                minLength: {
+                  value: 8,
+                  message: "Min length is 8!",
+                },
+              })}
+              className="w-full border rounded-md py-2 px-3 mt-1 text-gray-600 placeholder:text-gray-300 placeholder:text-sm"
+              placeholder="Confirm password..."
+            />
+            <p className="text-xs text-red-600">
+              {errors.passwordConfirmation?.message}
+            </p>
+            <span
+              className="absolute top-3 right-3 cursor-pointer"
+              onClick={() => {
+                setShowPasswordConfirmation(!showPasswordConfirmation);
+              }}
+            >
+              {showPasswordConfirmation ? (
+                <AiOutlineEye className="text-2xl text-gray-500" />
+              ) : (
+                <AiOutlineEyeInvisible className="text-2xl text-gray-500" />
+              )}
+            </span>
+          </div>
 
           <div className="flex flex-col justify-center text-xs text-center mt-5 gap-2">
             <button
