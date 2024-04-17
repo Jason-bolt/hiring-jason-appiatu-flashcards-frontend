@@ -80,7 +80,7 @@ const EditCardModal = ({
                 type="submit"
                 className="btn text-black border border-black px-3 py-1 rounded-md flex justify-center items-center gap-2 hover:cursor-pointer hover:bg-gray-200"
               >
-                {loading && <div className="loader"></div>}
+                {loading && <div className="loader border border-white hover:border-black"></div>}
                 Save
               </button>
             </div>

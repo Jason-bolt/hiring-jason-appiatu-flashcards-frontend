@@ -113,7 +113,9 @@ const Register = () => {
               className="btn text-black border border-black px-3 py-1 rounded-md flex items-center justify-center gap-2 hover:cursor-pointer hover:text-white hover:bg-black"
               disabled={loading}
             >
-              {loading && <span className="loader"></span>}
+              {loading && (
+                <span className="loader border border-black hover:border-white"></span>
+              )}
               Register
             </button>
             <Link
