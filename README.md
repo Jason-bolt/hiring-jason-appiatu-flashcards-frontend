@@ -40,7 +40,7 @@ Contributions to FLASH are welcome! If you would like to contribute, please foll
 4. Test your changes thoroughly.
 5. Submit a pull request with a clear description of your changes.
 
-#### Hosted link: https://jason-flashcards.vercel.app/(https://jason-flashcards.vercel.app/) 
+#### Hosted link: https://jason-flashcards.vercel.app/
 
 ## Authur
 
